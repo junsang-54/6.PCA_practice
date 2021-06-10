@@ -12,3 +12,14 @@ def mk_ar(a):
     len_np_array = np_array.shape[0]*np_array.shape[1]
     np_array_res = np.array(a).reshape(len_np_array, 1)
     return np_array_res
+
+#첫 번째 이미지 저장,
+imag_f = Image.open('/Users/junsangwon/Downloads/archive/' + file_list[0])
+imag_arr = mk_ar(imag_f)
+#모든 얼굴 이미지 한 행렬
+for i in range(len(file_list)):
+    imag_ = Image.open('/Users/junsangwon/Downloads/archive/' + file_list[i])
+    imag_arr_A = mk_ar(imag_)
+    imag_arr = np.concatenate((imag_arr, imag_arr_A), axis=1)
+
+imag_arr = np.delete(imag_arr, 0, axis=1)       #중복된 첫 열 제거(수정필요)
