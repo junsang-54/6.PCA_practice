@@ -24,9 +24,18 @@ for i in range(len(file_list)):
 
 imag_arr = np.delete(imag_arr, 0, axis=1)       #중복된 첫 열 제거(수정필요)
 
-imag_arr_M = imag_arr.mean(axis=1)      #얼굴평균
+imag_arr_M = imag_arr.mean(axis=1)      #얼굴평균 픽셀값
 imag_arr_Mrs = imag_arr_M.reshape(5600, 1)
 imag_M = imag_arr_M.reshape(80,70)      #이미지의 원래 배열로 변환
 
 pil_image=Image.fromarray(imag_M)       #얼굴평균 이미지화 하기
 # pil_image.show()        #얼굴평균 출력
+
+Mean_arr = []           #얼굴평균 픽셀값 (400, 5600)으로 배열하기
+for i in range(400):
+    N = imag_arr_Mrs
+    Mean_arr.append(N)
+
+
+Mean_arr_A = np.array(Mean_arr).reshape(400, 5600)
+Mean_arr_AT = Mean_arr_A.T
