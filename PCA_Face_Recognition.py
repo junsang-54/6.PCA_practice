@@ -49,3 +49,12 @@ Cov_matrix2 = np.cov(A.T)
 #고유값, 고유벡터, eige_face 생성
 eigenvalue, eigenvector = np.linalg.eig(Cov_matrix2)
 eig_face = np.matmul(A, eigenvector)
+
+## eigenface 이미지 저장
+# a = 0
+# for i in range (400):
+#     example = eig_face[:, i]
+#     example = example.reshape(80,70)
+#     eig_face_t_imag =Image.fromarray(example.astype(np.uint8), "L")
+#     eig_face_t_imag.save('/Users/junsangwon/Desktop/eig_face5/{a}.jpeg'.format(a=a))
+#     a += 1
