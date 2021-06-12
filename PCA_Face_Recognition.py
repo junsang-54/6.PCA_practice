@@ -39,3 +39,13 @@ for i in range(400):
 
 Mean_arr_A = np.array(Mean_arr).reshape(400, 5600)
 Mean_arr_AT = Mean_arr_A.T
+
+#차이벡터
+A = imag_arr-Mean_arr_AT
+
+Cov_matrix1 = (np.matmul(A.T, A))/5599
+Cov_matrix2 = np.cov(A.T)
+
+#고유값, 고유벡터, eige_face 생성
+eigenvalue, eigenvector = np.linalg.eig(Cov_matrix2)
+eig_face = np.matmul(A, eigenvector)
